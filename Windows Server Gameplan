@@ -1,0 +1,46 @@
+Windows Server Gameplan
+---
+
+### README
+- **Forensic Questions**: List any critical questions for forensics, incident response, or compliance reporting.
+
+### Initialize Script and Fix Potential Issues
+- **Initialize PowerShell Script**: Run an initial PowerShell script to reset environment variables, reinitialize Windows Update, and address any system issues.
+- **Reset Configuration**: Re-enable and verify essential services and correct any policy configurations that may be affecting script or server performance.
+
+### Baselining
+- **System Baseline**: Establish a baseline for the server by documenting system details with `Get-ComputerInfo`, reviewing active services with `Get-Service`, and examining processes with `Get-Process`.
+- **Registry and Event Logging**: Set up logging for changes to the registry and capture key events for tracking modifications over time.
+
+### Users & Groups
+- **User and Group Review**: Review user and group memberships, especially focusing on admin-level access. Use `net user` and `net localgroup`.
+- **Password Policies**: Enforce strict password policies through Group Policy, including password complexity, expiration, and lockout policies.
+
+### Backdoor & Malware Hunting
+- **Malware Detection and Forensics**: Use Windows Defender, Sysinternals tools (`Autoruns`, `Process Explorer`), and MRT to scan for malicious processes, backdoors, or rootkits.
+- **Event Viewer**: Regularly review the Security and Application logs in Event Viewer for unusual activity, including failed logins and process starts.
+
+### Updates
+- **Windows Updates**: Run `sconfig` (for server core) or Windows Update to ensure all updates are installed. Consider using WSUS (Windows Server Update Services) for controlled update management.
+- **Reboot**: Reboot the server as necessary to apply kernel and critical security updates, ensuring minimal disruption to services.
+
+### Package and Service Management
+- **Service Management**: Identify and disable non-essential services. Use `Get-Service` to check each service’s purpose and consider stopping those that are not critical to server functionality.
+- **Server Roles**: Limit server roles to only those necessary for operations (e.g., IIS for web servers, Active Directory for domain controllers) to reduce the attack surface.
+
+### System Hardening
+- **Group Policy Security Settings**: Apply secure Group Policy settings to control user permissions, prevent unnecessary software installations, and restrict local policies.
+- **Firewall and Network Access Control**: Configure Windows Defender Firewall to allow only essential traffic, and review inbound and outbound rules.
+- **Enable Enhanced Security**: Use Advanced Threat Protection and ensure UAC and Credential Guard/LSASS protection are active for added security.
+
+### Critical Service Security
+- **Service Hardening**: Secure critical services like DNS, DHCP, and Active Directory by restricting access and enforcing secure authentication mechanisms.
+- **Remote Desktop Security**: Limit RDP access, enforce Network Level Authentication (NLA), configure auditing, and restrict RDP by IP where possible.
+- **Audit Policies**: Apply detailed audit policies for critical services to monitor any unauthorized changes or access.
+
+### File and Directory Permissions
+- **File and Folder Permissions**: Enforce strict permissions on critical system directories (e.g., `C:\Windows\System32`, `C:\ProgramData`) and shared folders.
+- **Enable Auditing**: Set up file and folder auditing on sensitive directories to track access and changes, with alerts for unauthorized access.
+
+### Point Scrounging
+- **Additional Security Configurations**: Implement any additional security measures, such as BitLocker for data drives, Sysmon for advanced event logging, and encryption of sensitive data.
