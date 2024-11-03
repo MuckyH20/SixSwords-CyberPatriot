@@ -1,0 +1,44 @@
+Windows Gameplan
+
+---
+
+### README
+- **Forensic Questions**: Document any questions or issues you may need to answer during the forensic analysis.
+
+### Initialize Script and Fix Potential Issues
+- **Initialize PowerShell Script**: Set up the PowerShell script and resolve any potential issues that could impact its functionality (e.g., reset system policies, correct environment variables, reinitialize Windows Update service, etc.).
+
+### Baselining
+- **System State**: Document the initial system state using tools like `Get-ComputerInfo` and `Get-Process` to establish a baseline of processes, services, and registry settings.
+
+### Users & Groups
+- **User Management**: Review and secure user accounts and groups to ensure no unauthorized users are present. Use commands like `net user` and `net localgroup`.
+- **Password Policies**: Verify that secure password policies are in place (e.g., password complexity, expiration, lockout policies).
+
+### Backdoor & Malware Hunting
+- **Malware Detection**: Use Windows Defender, Sysinternals tools (e.g., `Autoruns`, `Process Explorer`), and MRT to scan for malware and backdoors.
+- **Scheduled Tasks**: Check for potentially malicious scheduled tasks with `schtasks /query`.
+
+### Updates
+- **System Updates**: Apply all available Windows updates (`sconfig` on servers, `Get-WindowsUpdateLog`).
+- **Reboot**: Reboot the system as needed to apply kernel and critical security updates.
+
+### Package and Service Management
+- **Service Review**: Review and disable unnecessary services to reduce the attack surface (`Get-Service`).
+- **Program Control**: Uninstall unneeded applications via `Add/Remove Programs` or by using `winget`.
+
+### System Hardening
+- **Group Policy Configuration**: Enforce secure policies via Group Policy Management (`gpedit.msc`), restrict removable media, and manage access to critical system settings.
+- **Firewall Configuration**: Set up and enforce firewall rules using Windows Defender Firewall.
+- **UAC & LSASS Protection**: Ensure User Account Control (UAC) and LSASS protection are enabled.
+
+### Critical Service Security
+- **Service Hardening**: Secure essential services like RDP, Remote Assistance, and SMB.
+- **RDP Security**: Configure RDP settings to limit access, enforce Network Level Authentication (NLA), and set up event logging.
+
+### File and Directory Permissions
+- **Permissions Management**: Ensure critical directories (e.g., `C:\Windows\System32`, user profile directories) have secure permissions.
+- **Auditing**: Enable file and folder auditing to monitor access to sensitive files.
+
+### Point Scrounging
+- **Additional Security**: Implement any additional security measures (e.g., security logging, event monitoring, encryption of sensitive data).
