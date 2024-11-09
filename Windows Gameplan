@@ -35,6 +35,7 @@ Windows Gameplan
 ### Critical Service Security
 - **Service Hardening**: Secure essential services like RDP, Remote Assistance, and SMB.
 - **RDP Security**: Configure RDP settings to limit access, enforce Network Level Authentication (NLA), and set up event logging.
+- **SMB**: Configure SMB settings to encrypt data, disable SMB1 protocol and look for smb1.0 and disable.
 
 ### File and Directory Permissions
 - **Permissions Management**: Ensure critical directories (e.g., `C:\Windows\System32`, user profile directories) have secure permissions.
