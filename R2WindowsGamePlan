@@ -7,7 +7,7 @@ Ones related to stuff easily visible like an anauthorized app on the desktop
 
 ###Now you have a good idea of what is there to be fixed on your system. Do these last.
 Start with your checklist
-Then once you are done with your checklist you have these options
-Go through CIS benchmarks
 Baseline image
-Look through file system, use your intuition. Practice images would create this intuition.
+
+Utilize STIG(Main driving force) + CIS and GPT combo
+
